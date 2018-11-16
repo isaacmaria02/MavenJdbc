@@ -1,7 +1,7 @@
 package com.dao;
 import java.util.*;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -18,7 +18,7 @@ public class Jdbc {
 		//1.load driver
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
-			con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","system");
+			con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","Newuser123");
 			System.out.println("Connection to db..");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

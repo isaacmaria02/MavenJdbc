@@ -1,6 +1,8 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,7 +40,6 @@ public class InsertServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String firstName = request.getParameter("fname");
 		String lastName = request.getParameter("lname");
-		
 		Person p = new Person();
 		p.setFirstName(firstName);
 		p.setLastName(lastName);
@@ -46,7 +47,19 @@ public class InsertServlet extends HttpServlet {
 		Jdbc x = new Jdbc();
 		int i  =x.saveData(p);
 		
-		response.sendRedirect("index.jsp");
+		PrintWriter 		 out = response.getWriter();
+
+		
+		if(i>0)
+		{
+            out.println("Hello "+firstName+" "+lastName);
+		}
+		else
+		{
+			out.println("Error");
+		}
+		
+	//	response.sendRedirect("index.jsp");
 		
 	}
 
